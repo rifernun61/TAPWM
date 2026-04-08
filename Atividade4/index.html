@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedra, Papel e Tesoura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Jankenpon!</h1>
+        <p>Escolha sua jogada:</p>
+        
+        <div class="choices">
+            <button onclick="play(1)">💎 Pedra</button>
+            <button onclick="play(2)">📄 Papel</button>
+            <button onclick="play(3)">✂️ Tesoura</button>
+        </div>
+
+        <div id="result-area" class="result-area">
+            <p id="choices-made">Aguardando jogada...</p>
+            <h2 id="winner-text"></h2>
+            <p id="explanation"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
