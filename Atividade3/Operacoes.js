@@ -1,0 +1,14 @@
+var n1 = parseFloat(prompt("Numero 1"));
+var n2 = parseFloat(prompt("Numero 2"))
+
+var soma = n1 + n2;
+var subps = n1 - n2;
+var prod = n1 * n2;
+var divps = n1 / n2;
+var resto = n1 % n2;
+
+alert("Soma: " + soma.toFixed(2));
+alert("Subtração do primeiro com o segundo numero: " + subps.toFixed(2));
+alert("Produto: " + prod.toFixed(2));
+alert("Divisão do primeiro com o segundo numero: " + divps.toFixed(2));
+alert("Resto do primeiro com o segundo numero: " + resto.toFixed(2));
