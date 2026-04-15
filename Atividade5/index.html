@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Cinema</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Pesquisa de Cinema</h1>
+        <p class="subtitle">Lançamento de Filme — 45 pessoas</p>
+
+        <div class="progress">
+            <div class="progress-fill" id="progressFill"></div>
+            <span class="progress-label" id="progressLabel">0 / 45</span>
+        </div>
+
+        <!-- Formulário -->
+        <form id="form" class="form">
+            <label>Idade
+                <input type="number" id="idade" min="1" max="120" placeholder="Ex: 25" required>
+            </label>
+
+            <label>Sexo</label>
+            <div class="radio-row">
+                <label class="chip"><input type="radio" name="sexo" value="masculino" required> Masculino</label>
+                <label class="chip"><input type="radio" name="sexo" value="feminino"> Feminino</label>
+                <label class="chip"><input type="radio" name="sexo" value="outros"> Outros</label>
+            </div>
+
+            <label>Opinião</label>
+            <div class="radio-row">
+                <label class="chip"><input type="radio" name="opiniao" value="4" required> 🤩 Ótimo</label>
+                <label class="chip"><input type="radio" name="opiniao" value="3"> 😊 Bom</label>
+                <label class="chip"><input type="radio" name="opiniao" value="2"> 😐 Regular</label>
+                <label class="chip"><input type="radio" name="opiniao" value="1"> 😞 Péssimo</label>
+            </div>
+
+            <button type="submit" id="btnEnviar">Registrar Resposta →</button>
+        </form>
+
+        <!-- Resultados (aparece quando terminar) -->
+        <div id="resultados" class="resultados">
+            <h2>📊 Resultados</h2>
+            <div class="cards">
+                <div class="card"><span class="card-label">Média de Idade</span><span class="card-value" id="mediaIdade">—</span></div>
+                <div class="card"><span class="card-label">Mais Velha</span><span class="card-value" id="maisVelha">—</span></div>
+                <div class="card"><span class="card-label">Mais Nova</span><span class="card-value" id="maisNova">—</span></div>
+                <div class="card"><span class="card-label">Qtd. Péssimo</span><span class="card-value" id="qtdPessimo">—</span></div>
+                <div class="card"><span class="card-label">% Ótimo + Bom</span><span class="card-value" id="pctBom">—</span></div>
+                <div class="card wide"><span class="card-label">👨 Masculino / 👩 Feminino / 🧑 Outros</span><span class="card-value" id="generos">—</span></div>
+            </div>
+            <button id="btnReset" class="btn-reset">🔄 Nova Pesquisa</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
