@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Atividade 7 — Cinco exercícios de JavaScript: maior número, ordem crescente, palíndromo, subconjunto e dia da semana.">
+  <title>JS Toolkit — Exercícios de JavaScript</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/phosphor.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Ambient mesh gradient orbs -->
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+
+  <!-- Noise grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="app">
+
+    <!-- ─── Floating Nav ─── -->
+    <nav class="nav-pill" id="nav">
+      <span class="nav-brand">JS<span class="accent">Toolkit</span></span>
+      <div class="nav-links" id="nav-links">
+        <a href="#ex1">01</a>
+        <a href="#ex2">02</a>
+        <a href="#ex3">03</a>
+        <a href="#ex4">04</a>
+        <a href="#ex5">05</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay" id="mobile-overlay">
+      <div class="mobile-menu">
+        <a href="#ex1" class="mobile-link" onclick="closeMenu()">01 — Maior Número</a>
+        <a href="#ex2" class="mobile-link" onclick="closeMenu()">02 — Ordem Crescente</a>
+        <a href="#ex3" class="mobile-link" onclick="closeMenu()">03 — Palíndromo</a>
+        <a href="#ex4" class="mobile-link" onclick="closeMenu()">04 — Subconjunto</a>
+        <a href="#ex5" class="mobile-link" onclick="closeMenu()">05 — Dia da Semana</a>
+      </div>
+    </div>
+
+    <!-- ─── Hero ─── -->
+    <header class="hero reveal">
+      <div class="eyebrow">Atividade 7 — TAPWM</div>
+      <h1>Exercícios de<br>JavaScript</h1>
+      <p class="lead">Cinco funções essenciais — do cálculo numérico à manipulação de strings e datas.</p>
+    </header>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- EXERCÍCIO 1 — Maior Número                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="shell reveal" id="ex1">
+      <div class="card">
+        <div class="card-header">
+          <span class="exercise-number">01</span>
+          <div>
+            <div class="card-label">Exercício 1</div>
+            <h2 class="card-title">Maior Número</h2>
+          </div>
+        </div>
+        <p class="card-desc">Informe três números e descubra qual é o maior entre eles.</p>
+        <div class="input-row trio">
+          <div class="field">
+            <label for="ex1-a">Nº 1</label>
+            <input type="text" id="ex1-a" placeholder="ex: 10" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="ex1-b">Nº 2</label>
+            <input type="text" id="ex1-b" placeholder="ex: 25" autocomplete="off">
+          </div>
+          <br>
+          <div class="field">
+            <label for="ex1-c">Nº 3</label>
+            <input type="text" id="ex1-c" placeholder="ex: 18" autocomplete="off">
+          </div>
+        </div>
+        <div class="btn-group">
+          <button id="btn-ex1" class="btn-primary" onclick="exercicio1()">
+            <span>Verificar</span>
+            <span class="btn-icon-wrap"><span class="btn-arrow">→</span></span>
+          </button>
+        </div>
+        <div class="result-box hidden" id="res1">
+          <div class="result-icon" id="res1-icon"></div>
+          <p class="result-text" id="res1-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- EXERCÍCIO 2 — Ordem Crescente              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="shell reveal" id="ex2">
+      <div class="card">
+        <div class="card-header">
+          <span class="exercise-number">02</span>
+          <div>
+            <div class="card-label">Exercício 2</div>
+            <h2 class="card-title">Ordem Crescente</h2>
+          </div>
+        </div>
+        <p class="card-desc">Informe três números e veja-os organizados do menor para o maior.</p>
+        <div class="input-row trio">
+          <div class="field">
+            <label for="ex2-a">Nº 1</label>
+            <input type="text" id="ex2-a" placeholder="ex: 42" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="ex2-b">Nº 2</label>
+            <input type="text" id="ex2-b" placeholder="ex: 7" autocomplete="off">
+          </div>
+          <br>
+          <div class="field">
+            <label for="ex2-c">Nº 3</label>
+            <input type="text" id="ex2-c" placeholder="ex: 23" autocomplete="off">
+          </div>
+        </div>
+        <div class="btn-group">
+          <button id="btn-ex2" class="btn-primary" onclick="exercicio2()">
+            <span>Ordenar</span>
+            <span class="btn-icon-wrap"><span class="btn-arrow">→</span></span>
+          </button>
+        </div>
+        <div class="result-box hidden" id="res2">
+          <div class="result-icon" id="res2-icon"></div>
+          <div class="order-pills" id="res2-pills"></div>
+          <p class="result-text" id="res2-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- EXERCÍCIO 3 — Palíndromo                   -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="shell reveal" id="ex3">
+      <div class="card">
+        <div class="card-header">
+          <span class="exercise-number">03</span>
+          <div>
+            <div class="card-label">Exercício 3</div>
+            <h2 class="card-title">Palíndromo</h2>
+          </div>
+        </div>
+        <p class="card-desc">Descubra se uma palavra ou frase é um palíndromo — lê-se igual nos dois sentidos.</p>
+        <div class="input-row single">
+          <div class="field full">
+            <label for="ex3-input">Texto</label>
+            <input type="text" id="ex3-input" placeholder="ex: Ame a ema" autocomplete="off">
+          </div>
+        </div>
+        <div class="btn-group">
+          <button id="btn-ex3" class="btn-primary" onclick="exercicio3()">
+            <span>Verificar</span>
+            <span class="btn-icon-wrap"><span class="btn-arrow">→</span></span>
+          </button>
+        </div>
+        <div class="result-box hidden" id="res3">
+          <div class="result-icon" id="res3-icon"></div>
+          <p class="result-text" id="res3-text"></p>
+          <p class="result-sub" id="res3-sub"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- EXERCÍCIO 4 — Subconjunto                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="shell reveal" id="ex4">
+      <div class="card">
+        <div class="card-header">
+          <span class="exercise-number">04</span>
+          <div>
+            <div class="card-label">Exercício 4</div>
+            <h2 class="card-title">Subconjunto</h2>
+          </div>
+        </div>
+        <p class="card-desc">Verifique se a segunda palavra está contida dentro da primeira.</p>
+        <div class="input-row duo">
+          <div class="field">
+            <label for="ex4-a">Palavra principal</label>
+            <input type="text" id="ex4-a" placeholder="ex: coração" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="ex4-b">Subpalavra</label>
+            <input type="text" id="ex4-b" placeholder="ex: ação" autocomplete="off">
+          </div>
+        </div>
+        <div class="btn-group">
+          <button id="btn-ex4" class="btn-primary" onclick="exercicio4()">
+            <span>Verificar</span>
+            <span class="btn-icon-wrap"><span class="btn-arrow">→</span></span>
+          </button>
+        </div>
+        <div class="result-box hidden" id="res4">
+          <div class="result-icon" id="res4-icon"></div>
+          <p class="result-text" id="res4-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- EXERCÍCIO 5 — Dia da Semana                -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="shell reveal" id="ex5">
+      <div class="card">
+        <div class="card-header">
+          <span class="exercise-number">05</span>
+          <div>
+            <div class="card-label">Exercício 5</div>
+            <h2 class="card-title">Dia da Semana</h2>
+          </div>
+        </div>
+        <p class="card-desc">Informe uma data e descubra a qual dia da semana ela corresponde.</p>
+        <div class="input-row single">
+          <div class="field full">
+            <label for="ex5-input">Data</label>
+            <input type="date" id="ex5-input">
+          </div>
+        </div>
+        <div class="btn-group">
+          <button id="btn-ex5" class="btn-primary" onclick="exercicio5()">
+            <span>Descobrir</span>
+            <span class="btn-icon-wrap"><span class="btn-arrow">→</span></span>
+          </button>
+        </div>
+        <div class="result-box hidden" id="res5">
+          <div class="result-icon" id="res5-icon"></div>
+          <p class="result-text" id="res5-text"></p>
+          <p class="result-sub" id="res5-sub"></p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer reveal">
+      <p>Atividade 7 · TAPWM · 2026</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

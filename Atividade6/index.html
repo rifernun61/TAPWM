@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Verificador de triângulos — informe 3 valores e descubra se formam um triângulo e qual o tipo.">
+  <title>Triângulo — Verificador Geométrico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient mesh gradient orbs -->
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+
+  <!-- Noise grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header reveal">
+      <div class="eyebrow">Atividade 6 — TAPWM</div>
+      <h1>Verificador de<br>Triângulos</h1>
+      <p class="lead">Informe três valores e descubra se formam um triângulo, qual o tipo e suas propriedades geométricas.</p>
+    </header>
+
+    <!-- Input Card (Double-Bezel) -->
+    <section class="shell reveal" id="input-section">
+      <div class="card">
+        <div class="card-label">Entrada de dados</div>
+        <div class="input-row">
+          <div class="field">
+            <label for="side-a">Lado A</label>
+            <input type="text" id="side-a" placeholder="ex: 5" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="side-b">Lado B</label>
+            <input type="text" id="side-b" placeholder="ex: 7" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="side-c">Lado C</label>
+            <input type="text" id="side-c" placeholder="ex: 9" autocomplete="off">
+          </div>
+        </div>
+        <div class="btn-group">
+          <button id="btn-check" class="btn-primary" onclick="verificar()">
+            <span>Verificar Triângulo</span>
+            <span class="btn-icon-wrap"><span class="btn-arrow">→</span></span>
+          </button>
+          <button id="btn-clear" class="btn-ghost" onclick="limpar()">Limpar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result Card -->
+    <section class="shell result-shell hidden" id="result-section">
+      <div class="card result-card">
+        <div id="result-icon" class="result-icon"></div>
+        <h2 id="result-title" class="result-title"></h2>
+        <p id="result-message" class="result-message"></p>
+        <div id="result-type" class="result-badge hidden"></div>
+      </div>
+    </section>
+
+    <!-- Triangle Preview -->
+    <section class="shell preview-shell hidden" id="preview-section">
+      <div class="card">
+        <div class="card-label">Visualização</div>
+        <canvas id="triangle-canvas" width="520" height="340"></canvas>
+      </div>
+    </section>
+
+    <!-- Stats Card -->
+    <section class="shell stats-shell hidden" id="stats-section">
+      <div class="card">
+        <div class="card-label">Telemetria</div>
+        <div class="stats-grid">
+          <div class="stat-cell">
+            <span class="stat-label">Perímetro</span>
+            <output class="stat-value" id="stat-perimeter">—</output>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-label">Semi-perímetro</span>
+            <output class="stat-value" id="stat-semiperimeter">—</output>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-label">Área (Heron)</span>
+            <output class="stat-value" id="stat-area">—</output>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-label">Maior lado</span>
+            <output class="stat-value" id="stat-max">—</output>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-label">Menor lado</span>
+            <output class="stat-value" id="stat-min">—</output>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-label">Ângulo A</span>
+            <output class="stat-value" id="stat-angle-a">—</output>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-label">Ângulo B</span>
+            <output class="stat-value" id="stat-angle-b">—</output>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-label">Ângulo C</span>
+            <output class="stat-value" id="stat-angle-c">—</output>
+          </div>
+          <div class="stat-cell highlight">
+            <span class="stat-label">Classificação</span>
+            <output class="stat-value" id="stat-angle-class">—</output>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- History -->
+    <section class="shell reveal" id="history-section">
+      <div class="card">
+        <div class="card-label-row">
+          <span class="card-label">Histórico</span>
+          <button id="btn-clear-history" class="btn-link" onclick="limparHistorico()">Limpar tudo</button>
+        </div>
+        <div id="history-list" class="history-list">
+          <p class="history-empty" id="history-empty">Nenhuma verificação realizada ainda.</p>
+        </div>
+        <div class="history-stats hidden" id="history-stats">
+          <div class="divider-subtle"></div>
+          <span class="card-label" style="margin-top:16px">Resumo</span>
+          <div class="stats-grid mini">
+            <div class="stat-cell">
+              <span class="stat-label">Total</span>
+              <output class="stat-value" id="hs-total">0</output>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-label">Válidos</span>
+              <output class="stat-value" id="hs-valid">0</output>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-label">Inválidos</span>
+              <output class="stat-value" id="hs-invalid">0</output>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-label">Equiláteros</span>
+              <output class="stat-value" id="hs-equilatero">0</output>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-label">Isósceles</span>
+              <output class="stat-value" id="hs-isosceles">0</output>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-label">Escalenos</span>
+              <output class="stat-value" id="hs-escaleno">0</output>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer reveal">
+      <p>Atividade 6 · TAPWM · 2026</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
