@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercícios JS</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: monospace;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem;
+      gap: 2.5rem;
+    }
+
+    .block { width: 100%; max-width: 480px; }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    .row {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 0.55rem 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      outline: none;
+      background: #fff;
+    }
+
+    input[type="text"]:focus { border-color: #888; }
+
+    button {
+      padding: 0.55rem 1.1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+      font-family: monospace;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    button:hover { background: #eee; }
+
+    .output {
+      margin-top: 0.6rem;
+      font-size: 0.82rem;
+      min-height: 1.2rem;
+      color: #2a7a5a;
+      word-break: break-word;
+      line-height: 1.6;
+    }
+
+    .output.err { color: #c0392b; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.4rem; }
+
+    .tag {
+      background: #e8f5ef;
+      color: #2a7a5a;
+      border: 1px solid #b2dcc8;
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="block">
+    <label>Exercício 1 — três números separados por vírgula</label>
+    <div class="row">
+      <input id="in1" type="text" value="3, 7, 2" />
+      <button onclick="rodar1()">Enviar</button>
+    </div>
+    <div class="output" id="out1"></div>
+  </div>
+
+  <div class="block">
+    <label>Exercício 2 — cinco letras únicas separadas por vírgula</label>
+    <div class="row">
+      <input id="in2" type="text" value="A, B, C, D, E" />
+      <button onclick="rodar2()">Enviar</button>
+    </div>
+    <div class="output" id="out2"></div>
+  </div>
+
+  <script>
+    function processar(a, b, c) {
+      return `A soma dos três números é: ${a+b+c}, o quadrado do primeiro é: ${a*a} e o quadrado do segundo é: ${b*b}`;
+    }
+
+    function resultadoArray(nums) {
+      return processar.apply(null, nums);
+    }
+
+    function embaralhar(arr) {
+      return [].concat.apply([], [arr]).sort(() => Math.random() - 0.5);
+    }
+
+    function gerarPalavras(letras) {
+      const palavras = [];
+      let t = 0;
+      while (palavras.length < 10 && t++ < 500) {
+        const p = embaralhar(letras).join('');
+        if (!palavras.includes(p)) palavras.push(p);
+      }
+      return palavras;
+    }
+
+    function mostrar(id, html, ok) {
+      const el = document.getElementById(id);
+      el.innerHTML = html;
+      el.className = 'output' + (ok ? '' : ' err');
+    }
+
+    function rodar1() {
+      try {
+        const nums = document.getElementById('in1').value.split(',').map(s => {
+          const n = Number(s.trim());
+          if (isNaN(n)) throw new Error('valor inválido: ' + s.trim());
+          return n;
+        });
+        if (nums.length !== 3) throw new Error('informe exatamente 3 números.');
+        mostrar('out1', resultadoArray(nums), true);
+      } catch(e) { mostrar('out1', e.message, false); }
+    }
+
+    function rodar2() {
+      try {
+        const letras = document.getElementById('in2').value
+          .split(',').map(s => s.trim().toUpperCase()).filter(Boolean);
+        if (letras.length !== 5) throw new Error('informe exatamente 5 letras.');
+        if ([...new Set(letras)].length !== 5) throw new Error('as letras devem ser únicas.');
+        const tags = gerarPalavras(letras).map(p => `<span class="tag">${p}</span>`).join('');
+        mostrar('out2', `<div class="tags">${tags}</div>`, true);
+      } catch(e) { mostrar('out2', e.message, false); }
+    }
+  </script>
+
+</body>
+</html>
