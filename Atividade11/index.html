@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 11</title>
+</head>
+<body>
+    <script>
+        function Retangulo(base, altura) {
+            this.base = base;
+            this.altura = altura;
+
+            this.calcularArea = function() {
+                return this.base * this.altura;
+            };
+        }
+
+        alert("Iniciando Exercício 1: Retângulo");
+        let baseDigitada = parseFloat(prompt("Digite o valor da BASE do retângulo:"));
+        let alturaDigitada = parseFloat(prompt("Digite o valor da ALTURA do retângulo:"));
+
+        let meuRetangulo = new Retangulo(baseDigitada, alturaDigitada);
+
+        alert("A área do retângulo é: " + meuRetangulo.calcularArea());
+
+        class Conta {
+            constructor() {
+                this._nomeCorrentista = "";
+                this._banco = "";
+                this._numeroConta = "";
+                this._saldo = 0;
+            }
+
+            get nomeCorrentista() { return this._nomeCorrentista; }
+            set nomeCorrentista(valor) { this._nomeCorrentista = valor; }
+
+            get banco() { return this._banco; }
+            set banco(valor) { this._banco = valor; }
+
+            get numeroConta() { return this._numeroConta; }
+            set numeroConta(valor) { this._numeroConta = valor; }
+
+            get saldo() { return this._saldo; }
+            set saldo(valor) { this._saldo = parseFloat(valor); }
+        }
+
+        class Corrente extends Conta {
+            constructor() {
+                super();
+                this._saldoEspecial = 0;
+            }
+
+            get saldoEspecial() { return this._saldoEspecial; }
+            set saldoEspecial(valor) { this._saldoEspecial = parseFloat(valor); }
+
+            mostrarDados() {
+                return "--- CONTA CORRENTE ---\n" +
+                       "Nome: " + this.nomeCorrentista + "\n" +
+                       "Banco: " + this.banco + "\n" +
+                       "Número da Conta: " + this.numeroConta + "\n" +
+                       "Saldo: R$ " + this.saldo.toFixed(2) + "\n" +
+                       "Saldo Especial: R$ " + this.saldoEspecial.toFixed(2);
+            }
+        }
+
+        class Poupanca extends Conta {
+            constructor() {
+                super();
+                this._juros = 0;
+                this._dataVencimento = "";
+            }
+
+            get juros() { return this._juros; }
+            set juros(valor) { this._juros = parseFloat(valor); }
+
+            get dataVencimento() { return this._dataVencimento; }
+            set dataVencimento(valor) { this._dataVencimento = valor; }
+
+            mostrarDados() {
+                return "--- CONTA POUPANÇA ---\n" +
+                       "Nome: " + this.nomeCorrentista + "\n" +
+                       "Banco: " + this.banco + "\n" +
+                       "Número da Conta: " + this.numeroConta + "\n" +
+                       "Saldo: R$ " + this.saldo.toFixed(2) + "\n" +
+                       "Juros: " + this.juros + "%\n" +
+                       "Data de Vencimento: " + this.dataVencimento;
+            }
+        }
+
+        alert("Iniciando Exercício 2: Cadastro de Conta Corrente");
+        let cc = new Corrente();
+
+        cc.nomeCorrentista = prompt("Conta Corrente - Nome do Correntista:");
+        cc.banco = prompt("Conta Corrente - Nome do Banco:");
+        cc.numeroConta = prompt("Conta Corrente - Número da Conta:");
+        cc.saldo = prompt("Conta Corrente - Saldo atual:");
+        cc.saldoEspecial = prompt("Conta Corrente - Valor do Saldo Especial:");
+
+        alert(cc.mostrarDados());
+
+        alert("Cadastro de Conta Poupança");
+        let cp = new Poupanca();
+
+        cp.nomeCorrentista = prompt("Conta Poupança - Nome do Correntista:");
+        cp.banco = prompt("Conta Poupança - Nome do Banco:");
+        cp.numeroConta = prompt("Conta Poupança - Número da Conta:");
+        cp.saldo = prompt("Conta Poupança - Saldo atual:");
+        cp.juros = prompt("Conta Poupança - Taxa de Juros (%):");
+        cp.dataVencimento = prompt("Conta Poupança - Data de Vencimento (Ex: 10/05/2026):");
+
+        alert(cp.mostrarDados());
+
+    </script>
+</body>
+</html>
