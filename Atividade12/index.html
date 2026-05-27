@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abra a Janela</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        /* O wrapper agora posiciona as imagens umas sobre as outras */
+        .janela-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            /* Define o tamanho base para comportar as imagens absolutas */
+            width: 350px;
+            height: 350px; 
+            background-color: #111; /* Evita fundo branco durante a transição */
+        }
+
+        .janela-wrapper:hover {
+            transform: scale(1.05);
+        }
+
+        /* Todas as imagens ficam sobrepostas e transparentes por padrão */
+        .janela-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            pointer-events: none; /* Deixa os eventos passarem para o wrapper */
+        }
+
+        /* Imagem ativa ganha opacidade 1, gerando o efeito de Crossfade (transição suave) */
+        .janela-img.ativa {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .instrucoes {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="titulo">Janela Fechada</h1>
+        
+        <!-- Movemos os eventos para o contêiner para que funcionem independentemente da imagem sobreposta -->
+        <div 
+            class="janela-wrapper" 
+            id="wrapper"
+            onmouseover="abrirJanela()" 
+            onmouseout="fecharJanela()" 
+            onclick="quebrarJanela()"
+        >
+            <img id="img-fechada" src="janela_fechada.png" alt="Janela Fechada" class="janela-img ativa">
+            <img id="img-aberta" src="janela_aberta.png" alt="Janela Aberta" class="janela-img">
+            <img id="img-quebrada" src="janela_quebrada.png" alt="Janela Quebrada" class="janela-img">
+        </div>
+
+        <p class="instrucoes">Passe o mouse para abrir. Clique para quebrar.</p>
+    </div>
+
+    <script>
+        // Variável de estado
+        let isQuebrada = false;
+
+        const tituloTexto = document.getElementById('titulo');
+        const imgFechada = document.getElementById('img-fechada');
+        const imgAberta = document.getElementById('img-aberta');
+        const imgQuebrada = document.getElementById('img-quebrada');
+        const wrapper = document.getElementById('wrapper');
+
+        // Utilitário para limpar opacidade antes de ativar a nova
+        function ocultarTodas() {
+            imgFechada.classList.remove('ativa');
+            imgAberta.classList.remove('ativa');
+            imgQuebrada.classList.remove('ativa');
+        }
+
+        function abrirJanela() {
+            if (!isQuebrada) {
+                ocultarTodas();
+                imgAberta.classList.add('ativa');
+                tituloTexto.innerText = 'Janela Aberta';
+                tituloTexto.style.color = '#4CAF50';
+            }
+        }
+
+        function fecharJanela() {
+            if (!isQuebrada) {
+                ocultarTodas();
+                imgFechada.classList.add('ativa');
+                tituloTexto.innerText = 'Janela Fechada';
+                tituloTexto.style.color = '#FFFFFF';
+            }
+        }
+
+        function quebrarJanela() {
+            if (!isQuebrada) {
+                isQuebrada = true;
+                ocultarTodas();
+                imgQuebrada.classList.add('ativa');
+                tituloTexto.innerText = 'Janela Quebrada';
+                tituloTexto.style.color = '#F44336';
+                
+                // Feedback visual indicando que a interação acabou
+                wrapper.style.cursor = 'default';
+                wrapper.style.transform = 'scale(1)';
+            }
+        }
+    </script>
+</body>
+</html>
