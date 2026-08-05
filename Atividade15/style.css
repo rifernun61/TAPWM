@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  background-color: #f4f4f4;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Main --- */
+main {
+  width: 100%;
+  max-width: 520px;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+main h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #003366;
+}
+
+main > p {
+  margin-bottom: 16px;
+  color: #444;
+}
+
+/* --- Select --- */
+.select-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.select-area label {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.select-area select {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.select-area select:focus {
+  outline: 2px solid #003366;
+}
+
+/* --- Info box --- */
+.info-box {
+  background-color: #e8f0fb;
+  border-left: 4px solid #003366;
+  border-radius: 4px;
+  padding: 14px 16px;
+}
+
+.info-box strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #003366;
+}
+
+.info-box ul {
+  padding-left: 18px;
+}
+
+.info-box li {
+  margin-bottom: 4px;
+  color: #333;
+}

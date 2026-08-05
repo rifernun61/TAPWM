@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fatec Sorocaba – Cursos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main>
+    <h2>Cursos de Graduação Tecnológica</h2>
+    <p>Selecione um curso para ver mais informações:</p>
+
+    <div class="select-area">
+      <label for="cursoSelect">Curso:</label>
+      <select id="cursoSelect" onchange="abrirCurso(this)">
+        <option value="" disabled selected>-- Selecione um curso --</option>
+        <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+        <option value="automacao">Automação Industrial</option>
+        <option value="eletronicaaut">Eletrônica Automotiva</option>
+        <option value="fabricacaomec">Fabricação Mecânica</option>
+        <option value="gestaoqualidade">Gestão da Qualidade</option>
+        <option value="gestaoempresarial">Gestão Empresarial (EAD)</option>
+        <option value="logistica">Logística</option>
+        <option value="manufaturaav">Manufatura Avançada</option>
+        <option value="manutencaoaeronaves">Manutenção de Aeronaves</option>
+        <option value="polimeros">Polímeros</option>
+        <option value="processosmet">Processos Metalúrgicos</option>
+        <option value="projetosmec">Projetos Mecânicos</option>
+        <option value="sistemasbiomed">Sistemas Biomédicos</option>
+      </select>
+    </div>
+
+    <div class="info-box">
+      <strong>Informações gerais:</strong>
+      <ul>
+        <li>Ensino público e gratuito</li>
+        <li>Localizada em Sorocaba – SP</li>
+        <li>13 cursos superiores de tecnologia</li>
+        <li>Acesso pelo vestibular da FATEC (VUNESP)</li>
+      </ul>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+/* curso.css – janela de detalhes do curso (600 x 300) */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  background-color: #fff;
+  color: #222;
+  width: 600px;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topo azul com nome do curso */
+.topo {
+  background-color: #003366;
+  color: #fff;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+/* Área de conteúdo */
+.conteudo {
+  flex: 1;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+/* Tabela de dados */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  padding: 3px 6px;
+  vertical-align: top;
+}
+
+.rotulo {
+  font-weight: bold;
+  color: #003366;
+  width: 70px;
+  white-space: nowrap;
+}
+
+/* Descrição */
+.descricao {
+  color: #444;
+  line-height: 1.5;
+  font-size: 12px;
+}
+
+/* Rodapé */
+.rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ccc;
+  font-size: 12px;
+  color: #555;
+}
+
+.rodape button {
+  padding: 4px 12px;
+  font-size: 12px;
+  background-color: #003366;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.rodape button:hover {
+  background-color: #004d99;
+}
