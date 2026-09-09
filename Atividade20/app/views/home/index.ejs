@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana de Tecnologia 2026 - Início</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--card-bg);
+            color: var(--accent-color);
+        }
+
+        .btn-cta {
+            background-color: var(--accent-color);
+            color: var(--bg-color) !important;
+            font-weight: 600;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--accent-hover) !important;
+            color: #fff !important;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .grid-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        .card-link {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.75rem 1.25rem;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            text-align: left;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card-link:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+        }
+
+        .card-link h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .card-link p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo">⚡ SemanaTech 2026</a>
+            <nav>
+                <ul>
+                    <li><a href="/" class="active">Início</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                    <li><a href="/programacao">Programação</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                    <li><a href="/novidades">Novidades</a></li>
+                    <li><a href="/admin/inscricao" class="btn-cta">Inscreva-se</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <span class="badge">Edição 2026 • 100% Gratuito</span>
+            <h1>Semana de Tecnologia & Inovação</h1>
+            <p class="subtitle">
+                Conectando estudantes, professores e profissionais do mercado de tecnologia em uma imersão completa sobre Inteligência Artificial, Engenharia de Software e Cloud Computing.
+            </p>
+
+            <div class="grid-links">
+                <a href="/sobre" class="card-link">
+                    <h3>📖 Sobre o Evento</h3>
+                    <p>Conheça os objetivos, datas, local e a história da nossa semana acadêmica.</p>
+                </a>
+                <a href="/programacao" class="card-link">
+                    <h3>📅 Programação</h3>
+                    <p>Confira a grade com mais de 6 palestras, workshops e mesas redondas imperdíveis.</p>
+                </a>
+                <a href="/contato" class="card-link">
+                    <h3>✉️ Contato</h3>
+                    <p>Fale com a comissão organizadora, tire dúvidas ou venha nos visitar no balcão.</p>
+                </a>
+                <a href="/admin/inscricao" class="card-link">
+                    <h3>✍️ Inscrição</h3>
+                    <p>Garanta sua vaga gratuita e receba certificado com horas complementares.</p>
+                </a>
+                <a href="/novidades" class="card-link">
+                    <h3>🚀 Novidades (Extra)</h3>
+                    <p>Veja anúncios urgentes e novidades transmitidas diretamente via servidor.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Semana de Tecnologia. Desenvolvido com Node.js, Express e EJS.</p>
+    </footer>
+</body>
+</html>
