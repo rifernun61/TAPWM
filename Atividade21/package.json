@@ -1,0 +1,22 @@
+{
+  "name": "site_fatec",
+  "version": "1.0.0",
+  "description": "Site da Fatec de Sorocaba",
+  "license": "ISC",
+  "author": "Julia Martins",
+  "type": "commonjs",
+  "main": "Atividade18.js",
+  "scripts": {
+    "start": "npx nodemon app.js"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "msnodesqlv8": "^5.5.0",
+    "msql": "^1.0.3",
+    "mssql": "^12.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
