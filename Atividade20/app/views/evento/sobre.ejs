@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Evento - Semana de Tecnologia 2026</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 1rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            flex: 1;
+            max-width: 900px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: #e2e8f0;
+        }
+
+        p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .info-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.35rem;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-4px);
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo">⚡ SemanaTech 2026</a>
+            <nav>
+                <a href="/">Início</a>
+                <a href="/sobre" style="color: var(--accent-color);">Sobre</a>
+                <a href="/programacao">Programação</a>
+                <a href="/contato">Contato</a>
+                <a href="/admin/inscricao">Inscrição</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="content-card">
+            <h1>Sobre a Semana de Tecnologia</h1>
+
+            <h2>🎯 Objetivo do Evento</h2>
+            <p>
+                A Semana de Tecnologia é um evento acadêmico e profissional anual que visa aproximar os estudantes dos desafios contemporâneos do mercado de software e inovação digital.
+            </p>
+            <p>
+                Nosso propósito é proporcionar um ambiente colaborativo de aprendizado prático por meio de palestras, minicursos, mesas redondas e competições de código, abordando temas de ponta como Arquitetura de Software em Nuvem, Inteligência Artificial Aplicada e Boas Práticas no Ecossistema Node.js e JavaScript.
+            </p>
+
+            <div class="info-box">
+                <div class="info-item">
+                    <strong>📅 Datas e Período</strong>
+                    <p>19 a 23 de Outubro de 2026<br><small>Turnos matutino (09h às 12h) e noturno (19h às 22h)</small></p>
+                </div>
+                <div class="info-item">
+                    <strong>📍 Local</strong>
+                    <p>Auditório Central da Faculdade / Campus Universitário<br><small>Com transmissão ao vivo via streaming oficial</small></p>
+                </div>
+            </div>
+
+            <a href="/" class="btn-back">← Voltar para a Página Inicial</a>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Semana de Tecnologia. Desenvolvido com Node.js, Express e EJS.</p>
+    </footer>
+</body>
+</html>

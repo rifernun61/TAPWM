@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição - Semana de Tecnologia 2026</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 1rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            flex: 1;
+            max-width: 650px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            color: #f8fafc;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--accent-color);
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.85rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 0.5rem;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-hover);
+            color: #fff;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 1.75rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-4px);
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo">⚡ SemanaTech 2026</a>
+            <nav>
+                <a href="/">Início</a>
+                <a href="/sobre">Sobre</a>
+                <a href="/programacao">Programação</a>
+                <a href="/contato">Contato</a>
+                <a href="/admin/inscricao" style="color: var(--accent-color);">Inscrição</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="content-card">
+            <h1>Formulário de Inscrição</h1>
+            <p class="subtitle">Preencha seus dados para garantir sua vaga gratuita nos workshops e palestras do evento.</p>
+
+            <!-- Formulário Estático Simulado -->
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Inscrição simulada realizada com sucesso!');">
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: Maria da Silva" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail Institucional ou Pessoal:</label>
+                    <input type="email" id="email" name="email" placeholder="Ex: maria.silva@fatec.sp.gov.br" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria de Participante:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="" disabled selected>Selecione sua categoria...</option>
+                        <option value="estudante">Estudante de Graduação / Técnico</option>
+                        <option value="professor">Professor / Pesquisador</option>
+                        <option value="profissional">Profissional da Área de TI</option>
+                        <option value="visitante">Comunidade Externa / Visitante</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Confirmar Inscrição</button>
+            </form>
+
+            <a href="/" class="btn-back">← Voltar para a Página Inicial</a>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Semana de Tecnologia. Desenvolvido com Node.js, Express e EJS.</p>
+    </footer>
+</body>
+</html>

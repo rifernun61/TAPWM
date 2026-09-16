@@ -1,0 +1,24 @@
+{
+  "name": "semana-tecnologia",
+  "version": "1.0.0",
+  "description": "Aplicação web para a Semana de Tecnologia utilizando Node.js, Express e EJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx nodemon app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "ejs",
+    "commonjs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
